@@ -1,0 +1,251 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>orthogonal_reflection</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-09-19"><meta name="DC.source" content="doc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>orthogonal_reflection</h1><!--introduction--><p>Function to compute the -orthogonal- orthogonal_reflectionion of a vector or an array of vectors toward an hyperplane of the 3D or the 2D space.</p><p>Author &amp; support : nicolas.douillet (at) free.fr, 2020.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">See also</a></li><li><a href="#4">Input arguments</a></li><li><a href="#5">Output argument</a></li><li><a href="#6">Example #1</a></li><li><a href="#7">Example #2</a></li><li><a href="#8">Example #3</a></li><li><a href="#9">Example #4</a></li></ul></div><h2 id="1">Syntax</h2><p>S = orthogonal_reflection(V, P, n);</p><h2 id="2">Description</h2><p>S = orthogonal_reflection(V, P, n) computes the vector S, which results from the orthogonal orthogonal_reflectionion of vector V toward the hyperplane P.</p><h2 id="3">See also</h2><p><a href="https://fr.mathworks.com/matlabcentral/fileexchange/65531-any-3d-rotation">rotate_3D</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73490-point-to-plane-distance">point_to_plane_distance</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73478-point-to-line-distance-3d-2d">point_to_line_distance</a></p><h2 id="4">Input arguments</h2><pre>      [ -Vx- ]
+- V = [ -Vy- ], real (array of) column vector(s) double, the vector(s) to orthogonal_reflection. Size(V) = [3,vector_nb].
+      [ -Vz- ]</pre><pre>        [Px]
+- P : = [Py], real column vector double, one point belonging to the orthogonal_reflectionion hyperplane. Size(P) = [3,1].
+        [Pz]</pre><pre>        [nx]
+- n : = [ny], real column vector double, one vector normal to the orthogonal_reflectionion hyperplane. Size(n) = [3,1].
+        [nz]</pre><h2 id="5">Output argument</h2><pre>      [ -Sx- ]
+- S = [ -Sy- ], real (array of) vector(s) double, the resulting orthogonal_reflectioned vector(s). Size(S) = [3,vector_nb].
+      [ -Sz- ]</pre><h2 id="6">Example #1</h2><p>2D point</p><pre class="codeinput">n = [1 1]';
+P = n;
+V = [2 2]';
+S = orthogonal_reflection(V, P, n) <span class="comment">% expected : S = [0; 0]</span>
+</pre><pre class="codeoutput">S =
+     0
+     0
+</pre><h2 id="7">Example #2</h2><p>Array of 2D points</p><pre class="codeinput">n = [2 -1]';
+P = [1 0]';
+nb_pts = 16;
+V = rand(2,nb_pts) - cat(1,zeros(1,nb_pts),ones(1,nb_pts));
+S = orthogonal_reflection(V,P,n);
+
+figure;
+plot(V(1,:),V(2,:),<span class="string">'b+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+plot(S(1,:),S(2,:),<span class="string">'g+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+line([0 1],[-2 0],<span class="string">'Color'</span>,[1 0 0],<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+axis <span class="string">equal</span>, axis <span class="string">tight</span>;
+set(gcf,<span class="string">'Color'</span>,[0 0 0]), set(gca,<span class="string">'Color'</span>,[0 0 0],<span class="string">'XColor'</span>,[1 1 1],<span class="string">'YColor'</span>,[1 1 1],<span class="string">'ZColor'</span>,[1 1 1],<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="doc_01.png" alt=""> <h2 id="8">Example #3</h2><p>Random array of 3D points</p><pre class="codeinput">n = [1 1 1]';
+P = [0 0 0]';
+nb_pts = 32;
+V = rand(3,nb_pts);
+S = orthogonal_reflection(V,P,n);
+
+figure;
+[X,Y] = meshgrid(-1:0.1:1,1:-0.1:-1);
+Z = -X-Y;
+surf(X,Y,Z), shading <span class="string">interp</span>, hold <span class="string">on</span>;
+
+plot3(V(1,:),V(2,:),V(3,:),<span class="string">'b+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+plot3(S(1,:),S(2,:),S(3,:),<span class="string">'g+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+cellfun(@(c1,c2) line([c1(1) c2(1)],[c1(2) c2(2)],[c1(3) c2(3)],<span class="string">'LineStyle'</span>,<span class="string">'--'</span>,<span class="string">'LineWidth'</span>,0.5,<span class="string">'Color'</span>,[1 1 1]),num2cell(V,1),num2cell(S,1),<span class="string">'un'</span>,0);
+
+colormap([1 0 0]);
+alpha(0.5);
+axis <span class="string">equal</span>, axis <span class="string">tight</span>;
+view(45,26);
+set(gcf,<span class="string">'Color'</span>,[0 0 0]), set(gca,<span class="string">'Color'</span>,[0 0 0],<span class="string">'XColor'</span>,[1 1 1],<span class="string">'YColor'</span>,[1 1 1],<span class="string">'ZColor'</span>,[1 1 1],<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="doc_02.png" alt=""> <h2 id="9">Example #4</h2><p>Another array of 3D points</p><pre class="codeinput">n = [1 1 1]';
+P = [0 0 0]';
+V = cat(1,[2 1.25 1 1 1.25 1.75 2 2 1.75 1],zeros(1,10),[2 2 1.75 1.25 1 1 0.75 0.25 0 0]);
+S = orthogonal_reflection(V,P,n);
+
+figure;
+[X,Y] = meshgrid(-1:0.1:1,1:-0.1:-1);
+Z = -X-Y;
+surf(X,Y,Z), shading <span class="string">interp</span>, hold <span class="string">on</span>;
+
+plot3(V(1,:),V(2,:),V(3,:),<span class="string">'b+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+line(V(1,:),V(2,:),V(3,:),<span class="string">'Color'</span>,[0 0 1],<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+plot3(S(1,:),S(2,:),S(3,:),<span class="string">'g+'</span>,<span class="string">'MarkerSize'</span>,8,<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+line(S(1,:),S(2,:),S(3,:),<span class="string">'Color'</span>,[0 1 0],<span class="string">'Linewidth'</span>,2), hold <span class="string">on</span>;
+
+colormap([1 0 0]);
+alpha(0.5);
+axis <span class="string">square</span>, axis <span class="string">tight</span>;
+view(42,35);
+set(gcf,<span class="string">'Color'</span>,[0 0 0]), set(gca,<span class="string">'Color'</span>,[0 0 0],<span class="string">'XColor'</span>,[1 1 1],<span class="string">'YColor'</span>,[1 1 1],<span class="string">'ZColor'</span>,[1 1 1],<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="doc_03.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% orthogonal_reflection
+%
+% Function to compute the -orthogonal- orthogonal_reflectionion of a vector
+% or an array of vectors toward an hyperplane of the 3D or the 2D space.
+%
+% Author & support : nicolas.douillet (at) free.fr, 2020.
+%
+%% Syntax
+%
+% S = orthogonal_reflection(V, P, n);
+%
+%% Description
+%
+% S = orthogonal_reflection(V, P, n) computes the vector S, which results from
+% the orthogonal orthogonal_reflectionion of vector V toward the hyperplane P.
+%
+%% See also 
+%
+% <https://fr.mathworks.com/matlabcentral/fileexchange/65531-any-3d-rotation rotate_3D> |
+% <https://fr.mathworks.com/matlabcentral/fileexchange/73490-point-to-plane-distance point_to_plane_distance> |
+% <https://fr.mathworks.com/matlabcentral/fileexchange/73478-point-to-line-distance-3d-2d point_to_line_distance>
+%
+%% Input arguments
+%
+%        [ -Vx- ]
+% - V = [ -Vy- ], real (array of) column vector(s) double, the vector(s) to orthogonal_reflection. Size(V) = [3,vector_nb]. 
+%        [ -Vz- ] 
+%
+%          [Px]
+% - P : = [Py], real column vector double, one point belonging to the orthogonal_reflectionion hyperplane. Size(P) = [3,1].
+%          [Pz]
+%
+%          [nx]
+% - n : = [ny], real column vector double, one vector normal to the orthogonal_reflectionion hyperplane. Size(n) = [3,1].
+%          [nz]
+%
+%% Output argument
+%
+%        [ -Sx- ]
+% - S = [ -Sy- ], real (array of) vector(s) double, the resulting orthogonal_reflectioned vector(s). Size(S) = [3,vector_nb].
+%        [ -Sz- ]
+%
+%% Example #1
+% 2D point
+n = [1 1]';
+P = n;
+V = [2 2]';
+S = orthogonal_reflection(V, P, n) % expected : S = [0; 0]
+
+
+%% Example #2
+% Array of 2D points
+n = [2 -1]';
+P = [1 0]';
+nb_pts = 16;
+V = rand(2,nb_pts) - cat(1,zeros(1,nb_pts),ones(1,nb_pts));
+S = orthogonal_reflection(V,P,n);
+
+figure;
+plot(V(1,:),V(2,:),'b+','MarkerSize',8,'Linewidth',2), hold on;
+plot(S(1,:),S(2,:),'g+','MarkerSize',8,'Linewidth',2), hold on;
+line([0 1],[-2 0],'Color',[1 0 0],'Linewidth',2), hold on;
+axis equal, axis tight;
+set(gcf,'Color',[0 0 0]), set(gca,'Color',[0 0 0],'XColor',[1 1 1],'YColor',[1 1 1],'ZColor',[1 1 1],'FontSize',16);
+
+
+%% Example #3
+% Random array of 3D points
+n = [1 1 1]';
+P = [0 0 0]';
+nb_pts = 32;
+V = rand(3,nb_pts);
+S = orthogonal_reflection(V,P,n);
+
+figure;
+[X,Y] = meshgrid(-1:0.1:1,1:-0.1:-1);
+Z = -X-Y;
+surf(X,Y,Z), shading interp, hold on;
+
+plot3(V(1,:),V(2,:),V(3,:),'b+','MarkerSize',8,'Linewidth',2), hold on;
+plot3(S(1,:),S(2,:),S(3,:),'g+','MarkerSize',8,'Linewidth',2), hold on;
+cellfun(@(c1,c2) line([c1(1) c2(1)],[c1(2) c2(2)],[c1(3) c2(3)],'LineStyle','REPLACE_WITH_DASH_DASH','LineWidth',0.5,'Color',[1 1 1]),num2cell(V,1),num2cell(S,1),'un',0);
+
+colormap([1 0 0]);
+alpha(0.5);
+axis equal, axis tight;
+view(45,26);
+set(gcf,'Color',[0 0 0]), set(gca,'Color',[0 0 0],'XColor',[1 1 1],'YColor',[1 1 1],'ZColor',[1 1 1],'FontSize',16);
+
+
+%% Example #4
+% Another array of 3D points
+n = [1 1 1]';
+P = [0 0 0]';
+V = cat(1,[2 1.25 1 1 1.25 1.75 2 2 1.75 1],zeros(1,10),[2 2 1.75 1.25 1 1 0.75 0.25 0 0]);
+S = orthogonal_reflection(V,P,n);
+
+figure;
+[X,Y] = meshgrid(-1:0.1:1,1:-0.1:-1);
+Z = -X-Y;
+surf(X,Y,Z), shading interp, hold on;
+
+plot3(V(1,:),V(2,:),V(3,:),'b+','MarkerSize',8,'Linewidth',2), hold on;
+line(V(1,:),V(2,:),V(3,:),'Color',[0 0 1],'Linewidth',2), hold on;
+plot3(S(1,:),S(2,:),S(3,:),'g+','MarkerSize',8,'Linewidth',2), hold on;
+line(S(1,:),S(2,:),S(3,:),'Color',[0 1 0],'Linewidth',2), hold on;
+
+colormap([1 0 0]);
+alpha(0.5);
+axis square, axis tight;
+view(42,35);
+set(gcf,'Color',[0 0 0]), set(gca,'Color',[0 0 0],'XColor',[1 1 1],'YColor',[1 1 1],'ZColor',[1 1 1],'FontSize',16);
+##### SOURCE END #####
+--></body></html>
