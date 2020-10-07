@@ -1,5 +1,5 @@
 function [S] = orthogonal_reflection(V, P, n)
-%% orthogonal_reflection : function to compute the -orthogonal- orthogonal_reflectionion of a vector
+%% orthogonal_reflection : function to compute the -orthogonal- reflection of a vector
 % or an array of vectors toward an hyperplane of the 3D or the 2D space.
 %
 % Author & support : nicolas.douillet (at) free.fr, 2020.
@@ -13,7 +13,7 @@ function [S] = orthogonal_reflection(V, P, n)
 % Description
 %
 % S = orthogonal_reflection(V, P, n) computes the vector S, which results from
-% the orthogonal orthogonal_reflectionion of vector V toward the hyperplane P.
+% the orthogonal reflection of vector V toward the hyperplane P.
 %
 %
 % Input arguments
@@ -23,18 +23,18 @@ function [S] = orthogonal_reflection(V, P, n)
 %       [ -Vz- ] 
 %
 %         [Px]
-% - P : = [Py], real column vector double, one point belonging to the orthogonal_reflectionion hyperplane. Size(P) = [3,1].
+% - P : = [Py], real column vector double, one point belonging to the reflection hyperplane. Size(P) = [3,1].
 %         [Pz]
 %
 %         [nx]
-% - n : = [ny], real column vector double, one vector normal to the orthogonal_reflectionion hyperplane. Size(n) = [3,1].
+% - n : = [ny], real column vector double, one vector normal to the reflection hyperplane. Size(n) = [3,1].
 %         [nz]
 %
 %
 % Output argument
 %
 %       [ -Sx- ]
-% - S = [ -Sy- ], real (array of) vector(s) double, the resulting orthogonal_reflectioned vector(s). Size(S) = [3,vector_nb].
+% - S = [ -Sy- ], real (array of) vector(s) double, the resulting reflected vector(s). Size(S) = [3,vector_nb].
 %       [ -Sz- ]
 %
 %
