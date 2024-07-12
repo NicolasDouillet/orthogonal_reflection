@@ -1,8 +1,8 @@
-function [S] = orthogonal_reflection(V, P, n)
+function S = orthogonal_reflection(V, P, n)
 %% orthogonal_reflection : function to compute the -orthogonal- reflection of a vector
 % or an array of vectors toward an hyperplane of the 3D or the 2D space.
 %
-% Author & support : nicolas.douillet (at) free.fr, 2020.
+% Author : nicolas.douillet (at) free.fr, 2020-2024.
 %
 %
 % Syntax
@@ -133,7 +133,7 @@ switch Ndim
         
 end
 
-n = n / sqrt(sum(n.^2,1));
+n = n / vecnorm(n');
 Sm = eye(Ndim) - 2*(n*n');
 S = Sm * V + 2*repmat(H',[1,nb_pts]);
 S(abs(S) < 1e4*eps) = 0;
@@ -165,7 +165,7 @@ if dimension == 2
     H(:,2) = y_H;    
     
     % Distance
-    d2H = sqrt(sum((P-H).^2,2));
+    d2H = vecnorm((P-H)',2)';
     H = H(:,1:dimension);
     
 elseif dimension == 3
@@ -186,7 +186,7 @@ elseif dimension == 3
     H(:,3) = z_H;
     
     % Distance
-    d2H = sqrt(sum((P-H).^2,2));
+    d2H = vecnorm((P-H)',2)';
     H = H(:,1:dimension);
     
 end
@@ -209,7 +209,7 @@ y_H = M(:,2) + t_H*n(2);
 z_H = M(:,3) + t_H*n(3);
 
 H = cat(2,x_H,y_H,z_H);
-d2H = sqrt(sum((M-H).^2,2));
+d2H = vecnorm((M-H)',2)';
 
 
 end % point_to_plane_distance

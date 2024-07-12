@@ -3,7 +3,7 @@
 % Function to compute the -orthogonal- reflection of a vector
 % or an array of vectors toward an hyperplane of the 3D or the 2D space.
 %
-% Author & support : nicolas.douillet (at) free.fr, 2020.
+% Author : nicolas.douillet (at) free.fr, 2020-2024.
 %
 %% Syntax
 %
