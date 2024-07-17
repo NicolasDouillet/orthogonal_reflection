@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>orthogonal_reflection</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-07"><meta name="DC.source" content="doc.m"><style type="text/css">
+      --><title>orthogonal_reflection</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2024-07-17"><meta name="DC.source" content="doc.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>orthogonal_reflection</h1><!--introduction--><p>Function to compute the -orthogonal- reflection of a vector or an array of vectors toward an hyperplane of the 3D or the 2D space.</p><p>Author &amp; support : nicolas.douillet (at) free.fr, 2020.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">See also</a></li><li><a href="#4">Input arguments</a></li><li><a href="#5">Output argument</a></li><li><a href="#6">Example #1</a></li><li><a href="#7">Example #2</a></li><li><a href="#8">Example #3</a></li><li><a href="#9">Example #4</a></li></ul></div><h2 id="1">Syntax</h2><p>S = orthogonal_reflection(V, P, n);</p><h2 id="2">Description</h2><p>S = orthogonal_reflection(V, P, n) computes the vector S, which results from the orthogonal reflection of vector V toward the hyperplane P.</p><h2 id="3">See also</h2><p><a href="https://fr.mathworks.com/matlabcentral/fileexchange/65531-any-3d-rotation">rotate_3D</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73490-point-to-plane-distance">point_to_plane_distance</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73478-point-to-line-distance-3d-2d">point_to_line_distance</a></p><h2 id="4">Input arguments</h2><pre>      [ -Vx- ]
+  </style></head><body><div class="content"><h1>orthogonal_reflection</h1><!--introduction--><p>Function to compute the -orthogonal- reflection of a vector or an array of vectors toward an hyperplane of the 3D or the 2D space.</p><p>Author : nicolas.douillet9 (at) gmail.com, 2020-2024.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">See also</a></li><li><a href="#4">Input arguments</a></li><li><a href="#5">Output argument</a></li><li><a href="#6">Example #1</a></li><li><a href="#7">Example #2</a></li><li><a href="#8">Example #3</a></li><li><a href="#9">Example #4</a></li></ul></div><h2 id="1">Syntax</h2><p>S = orthogonal_reflection(V, P, n);</p><h2 id="2">Description</h2><p>S = orthogonal_reflection(V, P, n) computes the vector S, which results from the orthogonal reflection of vector V toward the hyperplane P.</p><h2 id="3">See also</h2><p><a href="https://fr.mathworks.com/matlabcentral/fileexchange/65531-any-3d-rotation">rotate_3D</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73490-point-to-plane-distance">point_to_plane_distance</a> | <a href="https://fr.mathworks.com/matlabcentral/fileexchange/73478-point-to-line-distance-3d-2d">point_to_line_distance</a></p><h2 id="4">Input arguments</h2><pre>      [ -Vx- ]
 - V = [ -Vy- ], real (array of) column vector(s) double, the vector(s) to orthogonal_reflection. Size(V) = [3,vector_nb].
       [ -Vz- ]</pre><pre>        [Px]
 - P : = [Py], real column vector double, one point belonging to the reflection hyperplane. Size(P) = [3,1].
@@ -78,9 +78,12 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 P = n;
 V = [2 2]';
 S = orthogonal_reflection(V, P, n) <span class="comment">% expected : S = [0; 0]</span>
-</pre><pre class="codeoutput">S =
+</pre><pre class="codeoutput">
+S =
+
      0
      0
+
 </pre><h2 id="7">Example #2</h2><p>Array of 2D points</p><pre class="codeinput">n = [2 -1]';
 P = [1 0]';
 nb_pts = 16;
@@ -140,7 +143,7 @@ set(gcf,<span class="string">'Color'</span>,[0 0 0]), set(gca,<span class="strin
 % Function to compute the -orthogonal- reflection of a vector
 % or an array of vectors toward an hyperplane of the 3D or the 2D space.
 %
-% Author & support : nicolas.douillet (at) free.fr, 2020.
+% Author : nicolas.douillet9 (at) gmail.com, 2020-2024.
 %
 %% Syntax
 %
